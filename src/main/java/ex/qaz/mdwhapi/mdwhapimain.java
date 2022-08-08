@@ -46,6 +46,7 @@ public class mdwhapimain {
             configDir = new File(jsonlistpath);
             configDir.mkdir();
             WebHookEmptyFile.createEmptyExampleFileAt(jsonlistpath);
+            new File(jsonlistpath+"\\generatedDir").mkdir();
             WebHookEmptyFile.createEmptyFileAtWithName("justabitnewfile",jsonlistpath+"\\generatedDir");
         }
     }
