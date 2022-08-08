@@ -1,5 +1,10 @@
 package ex.qaz.mdwhapi.utils.webhooks;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 import javax.net.ssl.HttpsURLConnection;
 import java.awt.*;
 import java.io.IOException;
@@ -139,8 +144,12 @@ public class DiscordWebhook {
 
             json.put("embeds", embedObjects.toArray());
         }
-
-        return json.toString();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonParser jp = new JsonParser();
+        String uglyJSONString = json.toString();
+        JsonElement je = jp.parse(uglyJSONString);
+        String prettyJsonString = gson.toJson(je);
+        return prettyJsonString;
     }
     public void execute () throws IOException {
         if (this.content == null && this.embeds.isEmpty()) {

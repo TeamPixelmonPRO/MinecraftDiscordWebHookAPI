@@ -45,22 +45,8 @@ public class mdwhapimain {
         } else {
             configDir = new File(jsonlistpath);
             configDir.mkdir();
-            File emptyJsonExample = new File(jsonlistpath+"\\exampleWebhook.json");
-            PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonParser jp = new JsonParser();
-            String uglyJSONString = WebHookEmptyFile.getWebHookEmptyFileJson();
-            JsonElement je = jp.parse(uglyJSONString);
-            String prettyJsonString = gson.toJson(je);
-            writer.write(prettyJsonString);
-            writer.close();
-            emptyJsonExample.createNewFile();
-            if (Files.exists(Paths.get(jsonlistpath+"\\exampleWebhook.json"))) {
-                logger.info("New empty example json webhook file created succesfully!");
-            } else {
-                logger.info("New empty example json webhook file didn't created!");
-            }
-
+            WebHookEmptyFile.createEmptyExampleFileAt(jsonlistpath);
+            WebHookEmptyFile.createEmptyFileAtWithName("justabitnewfile",jsonlistpath+"\\generatedDir");
         }
     }
 }

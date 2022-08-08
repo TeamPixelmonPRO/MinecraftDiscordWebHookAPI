@@ -1,9 +1,15 @@
 package ex.qaz.mdwhapi.utils.webhooks;
 
+import ex.qaz.mdwhapi.mdwhapimain;
 import scala.util.parsing.json.JSONObject;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class WebHookEmptyFile {
     public static String getWebHookEmptyFileJson() throws IOException {
@@ -24,5 +30,29 @@ public class WebHookEmptyFile {
         embed.setTitle("Embed title text");
         wh.addEmbed(embed);
         return wh.getJson();
+    }
+    public static void createEmptyExampleFileAt(String path) throws IOException {
+        File emptyJsonExample = new File(path+"\\emptyExample.json");
+        PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
+        writer.write(getWebHookEmptyFileJson());
+        writer.close();
+        emptyJsonExample.createNewFile();
+        if (Files.exists(Paths.get(path+"\\emptyExample.json"))) {
+            mdwhapimain.logger.info("New empty example json webhook file created succesfully!");
+        } else {
+            mdwhapimain.logger.info("New empty example json webhook file didn't created!");
+        }
+    }
+    public static void createEmptyFileAtWithName(String name, String path) throws IOException {
+        File emptyJsonExample = new File(path+"\\"+name+".json");
+        PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
+        writer.write(getWebHookEmptyFileJson());
+        writer.close();
+        emptyJsonExample.createNewFile();
+        if (Files.exists(Paths.get(path))) {
+            mdwhapimain.logger.info("New empty example json webhook file created succesfully!");
+        } else {
+            mdwhapimain.logger.info("New empty example json webhook file didn't created!");
+        }
     }
 }
