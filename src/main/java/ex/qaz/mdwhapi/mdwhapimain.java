@@ -1,5 +1,9 @@
 package ex.qaz.mdwhapi;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import ex.qaz.mdwhapi.utils.webhooks.WebHookEmptyFile;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
@@ -8,10 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.LogManager;
@@ -38,18 +39,23 @@ public class mdwhapimain {
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+    public void postInit(FMLPostInitializationEvent event) throws IOException {
         if (Files.exists(Paths.get(jsonlistpath))) {
             configDir = new File(jsonlistpath);
         } else {
             configDir = new File(jsonlistpath);
             configDir.mkdir();
             File emptyJsonExample = new File(jsonlistpath+"\\exampleWebhook.json");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(emptyJsonExample, false));
-            writer.write(WebHookEmptyFile.getWebHookEmptyFileJson());
+            PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            String uglyJSONString = WebHookEmptyFile.getWebHookEmptyFileJson();
+            JsonElement je = jp.parse(uglyJSONString);
+            String prettyJsonString = gson.toJson(je);
+            writer.write(prettyJsonString);
             writer.close();
-
-            if (emptyJsonExample.createNewFile()) {
+            emptyJsonExample.createNewFile();
+            if (Files.exists(Paths.get(jsonlistpath+"\\exampleWebhook.json"))) {
                 logger.info("New empty example json webhook file created succesfully!");
             } else {
                 logger.info("New empty example json webhook file didn't created!");
