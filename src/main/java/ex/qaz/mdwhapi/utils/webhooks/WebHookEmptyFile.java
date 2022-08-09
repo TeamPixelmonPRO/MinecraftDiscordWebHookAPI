@@ -43,16 +43,19 @@ public class WebHookEmptyFile {
             mdwhapimain.logger.info("New empty example json webhook file didn't created!");
         }
     }
-    public static void createEmptyFileAtWithName(String name, String path) throws IOException {
-        File emptyJsonExample = new File(path+"\\"+name+".json");
-        PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
+
+    //TODO In command: generate file and edit it
+    public static File createEmptyFileAtWithName(String name, String path) throws IOException {
+        File emptyJsonFile = new File(path+"\\"+name+".json");
+        PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonFile));
         writer.write(getWebHookEmptyFileJson());
         writer.close();
-        emptyJsonExample.createNewFile();
+        emptyJsonFile.createNewFile();
         if (Files.exists(Paths.get(path))) {
             mdwhapimain.logger.info("New empty example json webhook file created succesfully!");
         } else {
             mdwhapimain.logger.info("New empty example json webhook file didn't created!");
         }
+        return emptyJsonFile;
     }
 }
