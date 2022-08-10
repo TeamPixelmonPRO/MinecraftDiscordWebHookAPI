@@ -1,4 +1,4 @@
-package ex.qaz.mdwhapi.utils.webhooks;
+package ex.qaz.mdwhapi.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

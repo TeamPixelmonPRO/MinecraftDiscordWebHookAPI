@@ -1,0 +1,4 @@
+commands.send.errorNoJson=Given JSON file not found.
+commands.chat.emptyMessage=
+commands.send.succesful=Webhook succesfully sended!
+commands.send.errorCantSend=Webhook didn't sended!

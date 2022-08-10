@@ -1,7 +1,6 @@
-package ex.qaz.mdwhapi.utils.webhooks;
+package ex.qaz.mdwhapi.utils;
 
 import ex.qaz.mdwhapi.mdwhapimain;
-import scala.util.parsing.json.JSONObject;
 
 import java.awt.*;
 import java.io.File;
@@ -19,8 +18,8 @@ public class WebHookEmptyFile {
         wh.setTts(false);
         wh.setContent("WebHook main content");
         wh.setUsername("WebHook username");
-        embed.addField("Embed's Field1 name","Embed's Field1 value",false);
-        embed.setAuthor("Embed's Author name","Embed's Author url(What was open when user click on this text)","Icon url");
+        embed.addField("Embed Field1 name","Embed's Field1 value",false);
+        embed.setAuthor("Embed Author name","Embed's Author url(What was open when user click on this text)","Icon url");
         embed.setColor(new Color(255,255,255));
         embed.setDescription("Embed description");
         embed.setFooter("Embed footer text","Embed footer icon url");
