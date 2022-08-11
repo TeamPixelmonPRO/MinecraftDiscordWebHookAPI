@@ -42,7 +42,6 @@ public class WebHookEmptyFile {
         }
     }
 
-    //TODO In command: generate file and edit it
     public static File createEmptyFileAtWithName(String name, String path) throws IOException {
         File emptyJsonFile = new File(path+"\\"+name+".json");
         PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonFile));

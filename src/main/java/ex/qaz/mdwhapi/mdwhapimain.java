@@ -76,5 +76,7 @@ public class mdwhapimain {
         manager.registerCommand(new CommandWHSend());
         manager.registerCommand(new CommandWHReload());
         manager.registerCommand(new CommandWHList());
+        //TODO Command to create empty webhook file with name
+        //TODO Command to edit existing webhooks
     }
 }
