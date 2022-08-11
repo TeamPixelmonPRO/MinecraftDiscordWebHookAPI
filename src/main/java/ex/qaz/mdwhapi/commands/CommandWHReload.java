@@ -42,6 +42,6 @@ public class CommandWHReload extends CommandBase {
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         FilesUtil.reload(new File(mdwhapimain.jsonlistpath));
-        sender.sendMessage(new TextComponentTranslation("commands.reload.success"));
+        sender.sendMessage(new TextComponentTranslation("commands.reload.successWebhookReload"));
     }
 }

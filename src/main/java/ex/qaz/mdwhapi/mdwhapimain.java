@@ -1,5 +1,6 @@
 package ex.qaz.mdwhapi;
 
+import ex.qaz.mdwhapi.commands.CommandWHList;
 import ex.qaz.mdwhapi.commands.CommandWHReload;
 import ex.qaz.mdwhapi.commands.CommandWHSend;
 import ex.qaz.mdwhapi.proxy.CommonProxy;
@@ -74,5 +75,6 @@ public class mdwhapimain {
         ServerCommandManager manager = (ServerCommandManager) command;
         manager.registerCommand(new CommandWHSend());
         manager.registerCommand(new CommandWHReload());
+        manager.registerCommand(new CommandWHList());
     }
 }
