@@ -1,5 +1,6 @@
 package ex.qaz.mdwhapi;
 
+import ex.qaz.mdwhapi.commands.CommandWHCreateEmpy;
 import ex.qaz.mdwhapi.commands.CommandWHList;
 import ex.qaz.mdwhapi.commands.CommandWHReload;
 import ex.qaz.mdwhapi.commands.CommandWHSend;
@@ -76,7 +77,7 @@ public class mdwhapimain {
         manager.registerCommand(new CommandWHSend());
         manager.registerCommand(new CommandWHReload());
         manager.registerCommand(new CommandWHList());
-        //TODO Command to create empty webhook file with name
+        manager.registerCommand(new CommandWHCreateEmpy());
         //TODO Command to edit existing webhooks
     }
 }

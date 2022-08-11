@@ -4,3 +4,4 @@ commands.send.succesful=Вебхук успешно отправлен!
 commands.send.errorCantSend=Вебхук не отправлен!
 commands.reload.successWebhookReload=Список JSON вебхуков успешно обновлён!
 commands.list.current=Список зарегистрированных JSON вебхуков:
+commands.createEmpty.errorNoNameGiven=В команде должно быть указано название создаваемого файла!
