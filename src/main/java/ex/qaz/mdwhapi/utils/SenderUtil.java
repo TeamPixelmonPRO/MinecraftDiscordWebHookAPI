@@ -14,7 +14,7 @@ public class SenderUtil {
             URL url = new URL(urlAdress);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.addRequestProperty("Content-Type", "application/json");
-            connection.addRequestProperty("User-Agent", "Java-DiscordWebhook-BY-Gelox_");
+            connection.addRequestProperty("User-Agent", "Java-DiscordWebhook-BY-qazwseer2_");
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
 
@@ -38,7 +38,7 @@ public class SenderUtil {
             URL url = new URL(urlAdress);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.addRequestProperty("Content-Type", "application/json");
-            connection.addRequestProperty("User-Agent", "Java-DiscordWebhook-BY-Gelox_");
+            connection.addRequestProperty("User-Agent", "Java-DiscordWebhook-BY-qazwseer2_");
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
 
