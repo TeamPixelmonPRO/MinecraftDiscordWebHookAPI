@@ -14,18 +14,17 @@ public class WebHookEmptyFile {
     public static String getWebHookEmptyFileJson() throws IOException {
         DiscordWebhook wh = new DiscordWebhook();
         DiscordWebhook.EmbedObject embed = new DiscordWebhook.EmbedObject();
-        wh.setAvatarUrl("WebHook Avatar URL");
+        wh.setAvatarUrl("https://i.imgur.com/Yz0JZne.png");
         wh.setTts(false);
         wh.setContent("WebHook main content");
         wh.setUsername("WebHook username");
-        embed.addField("Embed Field1 name","Embed's Field1 value",false);
-        embed.setAuthor("Embed Author name","Embed's Author url(What was open when user click on this text)","Icon url");
+        embed.addField("Embed Field1 name","Embed Field1 value",false);
+        embed.setAuthor("Embed Author name","https://i.imgur.com/Yz0JZne.png","https://i.imgur.com/Yz0JZne.png");
         embed.setColor(new Color(255,255,255));
         embed.setDescription("Embed description");
-        embed.setFooter("Embed footer text","Embed footer icon url");
-        embed.setImage("Embed image url");
-        embed.setThumbnail("Embed thumbnail url");
-        embed.setTimestamp("Embed timestamp");
+        embed.setFooter("Embed footer text","https://i.imgur.com/Yz0JZne.png");
+        embed.setImage("https://i.imgur.com/Yz0JZne.png");
+        embed.setThumbnail("https://i.imgur.com/Yz0JZne.png");
         embed.setTitle("Embed title text");
         wh.addEmbed(embed);
         return wh.getJson();
