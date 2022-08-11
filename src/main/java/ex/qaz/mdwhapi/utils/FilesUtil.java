@@ -6,10 +6,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FilesUtil {
     public static List<String> getAllFileNames(File parentDir) {
@@ -32,8 +35,18 @@ public class FilesUtil {
         return false;
     }
     public static String getJsonFromFile(String filename) throws IOException {
-        BufferedReader reader = Files.newBufferedReader(Paths.get(mdwhapimain.jsonlistpath + "\\" +filename+".json"));
-        String line = reader.readLine();
-        return line;
+        String content = null;
+        try {
+            content = readFile(mdwhapimain.jsonlistpath + "\\" +filename+".json", StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content;
+    }
+    public static String readFile(String path, Charset encoding) throws IOException {
+        String content = Files.lines(Paths.get(path), encoding)
+                .collect(Collectors.joining(System.lineSeparator()));
+
+        return content;
     }
 }
