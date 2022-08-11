@@ -2,3 +2,5 @@ commands.send.errorNoJson=Данный JSON файл не найден.
 commands.chat.emptyMessage=
 commands.send.succesful=Вебхук успешно отправлен!
 commands.send.errorCantSend=Вебхук не отправлен!
+commands.reload.succes=Список JSON вебхуков успешно обновлён!
+commands.list.current=Список зарегистрированных JSON вебхуков:

@@ -38,8 +38,7 @@ public class CommandWHSend extends CommandBase {
         aliases.add(this.ALIAS);
         return aliases;
     }
-
-    //Выполнение команды происходит здесь, этот метод вызывается только на сервере (физическом или логическом)
+    //TODO Create Placeholder integration(User-friendly - Every user can create placeholders)
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (sender instanceof EntityPlayer) {
@@ -47,11 +46,13 @@ public class CommandWHSend extends CommandBase {
             TextComponentTranslation chatMessage = new TextComponentTranslation("commands.chat.emptyMessage");
             if (FilesUtil.isExist(args[0].replace("json:",""),mdwhapimain.configDir)) {
                 try {
-                    if (SenderUtil.sendWebhookByJSON(FilesUtil.getJsonFromFile(args[0].replace("json:","")),args[1].replace("url:",""))) {
+                    String outputJson = FilesUtil.getJsonFromFile(args[0].replace("json:",""));
+                    boolean isSended = SenderUtil.sendWebhookByJSON(FilesUtil.getJsonFromFile(args[0].replace("json:","")),args[1].replace("url:",""));
+                    if (isSended) {
                         chatMessage = new TextComponentTranslation("commands.send.succesful");
                     } else {
                         chatMessage = new TextComponentTranslation("commands.send.errorCantSend");
-                        mdwhapimain.logger.warn(FilesUtil.getJsonFromFile(args[0].replace("json:","")));
+                        mdwhapimain.logger.warn(outputJson);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
