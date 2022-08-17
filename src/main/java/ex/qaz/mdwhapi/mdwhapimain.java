@@ -69,7 +69,7 @@ public class mdwhapimain {
         MinecraftServer minecraftServer = event.getServer();
         registerCommands(event);
     }
-
+    //test
     private void registerCommands(FMLServerStartingEvent event) {
         MinecraftServer server = event.getServer();
         ICommandManager command = server.getCommandManager();
