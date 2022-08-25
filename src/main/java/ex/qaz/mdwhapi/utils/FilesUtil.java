@@ -1,5 +1,9 @@
 package ex.qaz.mdwhapi.utils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import ex.qaz.mdwhapi.mdwhapimain;
 
 import java.io.*;
@@ -42,8 +46,13 @@ public class FilesUtil {
     }
     public static void writeJsonToFile(String filename, String json) throws IOException {
         File emptyJsonExample = new File(mdwhapimain.jsonlistpath+"\\"+filename+".json");
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonParser jp = new JsonParser();
+        String uglyJSONString = json.toString();
+        JsonElement je = jp.parse(uglyJSONString);
+        String prettyJsonString = gson.toJson(je);
         PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
-        writer.write(json);
+        writer.write(prettyJsonString);
         writer.close();
     }
     public static String readFile(String path, Charset encoding) throws IOException {

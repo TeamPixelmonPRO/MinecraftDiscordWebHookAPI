@@ -1,9 +1,6 @@
 package ex.qaz.mdwhapi;
 
-import ex.qaz.mdwhapi.commands.CommandWHCreateEmpy;
-import ex.qaz.mdwhapi.commands.CommandWHList;
-import ex.qaz.mdwhapi.commands.CommandWHReload;
-import ex.qaz.mdwhapi.commands.CommandWHSend;
+import ex.qaz.mdwhapi.commands.*;
 import ex.qaz.mdwhapi.proxy.CommonProxy;
 import ex.qaz.mdwhapi.utils.FilesUtil;
 import ex.qaz.mdwhapi.utils.WebHookEmptyFile;
@@ -78,6 +75,6 @@ public class mdwhapimain {
         manager.registerCommand(new CommandWHReload());
         manager.registerCommand(new CommandWHList());
         manager.registerCommand(new CommandWHCreateEmpy());
-        //TODO Command to edit existing webhooks
+        manager.registerCommand(new CommandWHEditExisting());
     }
 }

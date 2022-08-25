@@ -4,4 +4,6 @@ commands.send.succesful=Webhook succesfully sended!
 commands.send.errorCantSend=Webhook didn't sended!
 commands.reload.successWebhookReload=Webhook JSON list succesfully reloaded!
 commands.list.current=Current Webhook JSON list:
-commands.createEmpty.errorNoNameGiven=The command must specify the name of the file being created!
+commands.createEmpty.errorNoNameGiven=The command must specify the name of the file
+commands.edit.errorNoTag=Invalid tags or values entered
+commands.edit.succesfuledit=Tag succesfully edited:

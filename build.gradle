@@ -51,7 +51,9 @@ dependencies {
     compile (group: 'org.apache.httpcomponents', name: 'fluent-hc', version: '4.5.5')
     compile (group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.3.1') {transitive = false}
     compile (group: 'net.coobird', name: 'thumbnailator', version: '0.4.8')
+    compile (group: 'org.json', name: 'json', version: '20220320')
 }
+
 
 processResources {
     // this will ensure that this task is redone when the versions change.
