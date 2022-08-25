@@ -48,10 +48,10 @@ public class CommandWHEditExisting extends CommandBase {
                 JSONObject json = new JSONObject(outputJson);
                 if (args[1].contains(":")) {
                     String oldValue = json.getString(args[1].substring(0,args[1].lastIndexOf(":")));
-                    json.put(args[1].substring(0,args[1].lastIndexOf(":")),args[1].substring(args[1].lastIndexOf(":")));
+                    json.put(args[1].substring(0,args[1].lastIndexOf(":")),args[1].substring(args[1].lastIndexOf(":")+1));
                     FilesUtil.writeJsonToFile(filename,json.toString());
                     sender.sendMessage(new TextComponentTranslation("commands.edit.succesfuledit"));
-                    sender.sendMessage(new TextComponentString("`"+args[1].substring(0,args[1].lastIndexOf(":"))+":\""+oldValue+"\"` -> `"+args[1].substring(0,args[1].lastIndexOf(":"))+":\""+args[1].substring(args[1].lastIndexOf(":"))+"\"`"));
+                    sender.sendMessage(new TextComponentString("`"+args[1].substring(0,args[1].lastIndexOf(":"))+":\""+oldValue+"\"` -> `"+args[1].substring(0,args[1].lastIndexOf(":"))+":\""+args[1].substring(args[1].lastIndexOf(":")+1)+"\"`"));
                 } else {
                     throw new CommandException("commands.edit.errorNoTag");
                 }
