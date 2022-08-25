@@ -46,8 +46,8 @@ public class CommandWHSend extends CommandBase {
             TextComponentTranslation chatMessage = new TextComponentTranslation("commands.chat.emptyMessage");
             if (FilesUtil.isExist(args[0].replace("json:",""),mdwhapimain.configDir)) {
                 try {
-                    String outputJson = FilesUtil.getJsonFromFile(args[0].replace("json:",""));
-                    boolean isSended = SenderUtil.sendWebhookByJSON(FilesUtil.getJsonFromFile(args[0].replace("json:","")),args[1].replace("url:",""));
+                    String outputJson = FilesUtil.readJsonFromFile(args[0].replace("json:",""));
+                    boolean isSended = SenderUtil.sendWebhookByJSON(FilesUtil.readJsonFromFile(args[0].replace("json:","")),args[1].replace("url:",""));
                     if (isSended) {
                         chatMessage = new TextComponentTranslation("commands.send.succesful");
                     } else {

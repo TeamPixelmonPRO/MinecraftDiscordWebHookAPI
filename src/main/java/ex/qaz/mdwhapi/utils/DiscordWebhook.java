@@ -447,7 +447,7 @@ public class DiscordWebhook {
         }
     }
 
-    private class JSONObject {
+    public static class JSONObject {
         private final HashMap<String, Object> map = new HashMap<>();
 
         void put (String key, Object value) {

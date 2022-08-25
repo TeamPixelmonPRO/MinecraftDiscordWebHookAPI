@@ -2,10 +2,7 @@ package ex.qaz.mdwhapi.utils;
 
 import ex.qaz.mdwhapi.mdwhapimain;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -34,7 +31,7 @@ public class FilesUtil {
         }
         return false;
     }
-    public static String getJsonFromFile(String filename) throws IOException {
+    public static String readJsonFromFile(String filename) throws IOException {
         String content = null;
         try {
             content = readFile(mdwhapimain.jsonlistpath + "\\" +filename+".json", StandardCharsets.UTF_8);
@@ -42,6 +39,12 @@ public class FilesUtil {
             e.printStackTrace();
         }
         return content;
+    }
+    public static void writeJsonToFile(String filename, String json) throws IOException {
+        File emptyJsonExample = new File(mdwhapimain.jsonlistpath+"\\"+filename+".json");
+        PrintWriter writer = new PrintWriter(new FileWriter(emptyJsonExample));
+        writer.write(json);
+        writer.close();
     }
     public static String readFile(String path, Charset encoding) throws IOException {
         String content = Files.lines(Paths.get(path), encoding)
